@@ -1,7 +1,5 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -52,6 +50,6 @@ module.exports = {
       title: 'Computational Thinking App',
       filename: 'index.html',
       template: 'src/index.html',
-    })
+    }),
   ],
-}
+};
