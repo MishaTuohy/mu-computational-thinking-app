@@ -1,5 +1,4 @@
 import { initializeApp } from 'firebase/app';
-import './styles/main';
 import { 
   hideLoginError, 
   showLoginState, 
