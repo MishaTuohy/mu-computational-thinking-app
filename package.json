@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack serve",
+    "start": "webpack-dev-server --mode development",
     "prepare": "husky install"
   },
   "license": "ISC",
