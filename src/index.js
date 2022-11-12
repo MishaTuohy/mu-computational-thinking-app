@@ -7,7 +7,7 @@ root.render(
   <React.StrictMode>
     <App />
     <h1>
-      test
+      test2
     </h1>
   </React.StrictMode>
 );
