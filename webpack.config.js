@@ -1,58 +1,66 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+let mode = "development";
+let target = "web";
+
+if(process.env.NODE_ENV == "production") {
+    mode = "production";
+    target = "browserlist";
+}
 
 module.exports = {
-  mode: 'development',
-  entry: {
-    bundle: path.resolve(__dirname, 'src/index.js'),
-  },
-  output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: '[name][contenthash].js',
-    clean: true,
-    assetModuleFilename: '[name][ext]',
-  },
-  devtool: 'source-map',
-  devServer: {
-    static: {
-      directory: path.resolve(__dirname, 'build'),
+    mode: mode,
+    target: target,
+
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        assetModuleFilename: "images/[hash][ext][query]"
     },
-    port: 3000,
-    open: true,
-    hot: true,
-    compress: true,
-    historyApiFallback: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', 
-              ['@babel/preset-react', {runtime: 'automatic'}] 
-            ],
-          },
-        },
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        use: ['@svgr/webpack'],
-        type: 'asset/resource',
-      },
+
+    module: {
+        rules: [
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: "asset",
+            },
+            {
+                test: /\.(s[ac]|c)ss$/i,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: { publicPath: "" },
+                    },
+                    "css-loader",
+                    "postcss-loader",
+                    "sass-loader",
+                ],
+            },
+            {
+                test:/\.jsx?$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                },
+            },
+        ],
+    },
+
+    plugins: [
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin(), 
+        new HtmlWebpackPlugin({template: "./src/index.html",}),
     ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Computational Thinking App',
-      filename: 'index.html',
-      template: 'src/index.html',
-    })
-  ],
-}
+
+    resolve: {
+        extensions: [ ".js", ".jsx"],
+    },
+
+    devtool: "source-map",
+    devServer: {
+        static: "./dist",
+        hot: true
+    },
+};
