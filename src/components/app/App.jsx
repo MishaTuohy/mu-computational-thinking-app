@@ -1,11 +1,14 @@
 import "../../styles/index.css";
+import Map from "../map/Map";
+import Player from "../player/Player";
 
 const App = () => {
     return (
         <>
             <main>
                 <section>
-                    <h1>Ello</h1>
+                    <Map />
+                    <Player />
                 </section>
             </main>
         </>
