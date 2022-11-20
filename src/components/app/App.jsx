@@ -1,19 +1,15 @@
-import "../../styles/index.scss";
-import Recipes from "../recipes/Recipes";
-import sword from "../../images/swc-sword.png";
-import swordSvg from "../../images/sword.svg";
+import "../../styles/index.css";
+import Map from "../map/Map";
+import Player from "../player/Player";
 
 const App = () => {
     return (
         <>
-            <section className="hero"></section>
             <main>
                 <section>
-                    <h1>Ello</h1>
+                    <Map />
+                    <Player />
                 </section>
-                <img src={sword} alt="sword" width= "250" />
-                <img src={swordSvg} alt="sword" width= "250" />
-                <Recipes />
             </main>
         </>
     )
