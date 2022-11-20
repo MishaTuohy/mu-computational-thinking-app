@@ -3,10 +3,10 @@ import "../../styles/index.css";
 const Player = () => {
     return (
         <>
-            <div class="player-info">
+            <div className="player-info">
                 <div>
-                    <label for="player-name">Your Name</label>
-                    <input id="player-name" maxlength="10" type="text" />
+                    <label htmlFor="player-name">Your Name</label>
+                    <input id="player-name" maxLength="10" type="text" />
                 </div>
                 <div>
                     <button id="player-color">Change Color</button>

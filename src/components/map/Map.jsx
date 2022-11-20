@@ -3,7 +3,7 @@ import "../../styles/index.css";
 const Map = () => {
     return (
         <>
-            <div class="game-container" />
+            <div className="game-container" />
         </>
     )
 };

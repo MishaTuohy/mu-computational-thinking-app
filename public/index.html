@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <title>React Webpack Project</title>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+        <script>
+            const firebaseConfig = {
+                apiKey: "AIzaSyBBsT46f97yy0IpFUgQYB0INJaIpBaC7NQ",
+                authDomain: "mu-computational-thinking-app.firebaseapp.com",
+                databaseURL: "https://mu-computational-thinking-app-default-rtdb.europe-west1.firebasedatabase.app",
+                projectId: "mu-computational-thinking-app",
+                storageBucket: "mu-computational-thinking-app.appspot.com",
+                messagingSenderId: "408185952246",
+                appId: "1:408185952246:web:6603731e3cbabc6ef319d7"
+            };
+            firebase.initializeApp(firebaseConfig);
+          </script>
+      
+          <script src="../src\behaviour\game\Game.js"></script>
+          <script src="../src\behaviour\key-listener\KeyListener.js"></script>
+    </body>
+</html>
